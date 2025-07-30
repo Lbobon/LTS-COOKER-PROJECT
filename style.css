@@ -1,0 +1,1106 @@
+body {
+    background-color: #6d4c41;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+    transition: all 0.3s ease;
+}
+
+.container {
+    background-color: #8d6e63;
+    border-radius: 20px;
+    padding: 20px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.6s ease-out;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+header button {
+    background-color: #f5e6ca;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #6d4c41;
+    transition: all 0.3s ease;
+    transform: scale(1);
+}
+
+header button:hover {
+    background-color: #e8d5b7;
+    transform: scale(1.05) translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header button:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+}
+
+h1 {
+    color: #f5e6ca;
+    font-size: 60px;
+    margin: 20px 0;
+    font-weight: bold;
+    animation: fadeInScale 0.8s ease-out 0.2s both;
+}
+
+.mouse-img-main {
+    width: 250px;
+    margin-bottom: 20px;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+    transition: transform 0.3s ease;
+}
+
+.mouse-img-main:hover {
+    transform: scale(1.02);
+}
+
+.input-area {
+    display: flex;
+    align-items: center;
+    background-color: #f5e6ca;
+    border-radius: 30px;
+    padding: 5px;
+    border: 3px solid #6d4c41;
+    position: relative;
+    height: 60px;
+    animation: fadeInUp 0.8s ease-out 0.8s both;
+    transition: all 0.3s ease;
+}
+
+.input-area:focus-within {
+    border-color: #5d4037;
+    box-shadow: 0 0 0 2px rgba(93, 64, 55, 0.2);
+    transform: translateY(-1px);
+}
+
+.cooker-img-small {
+    width: 80px;
+    position: absolute;
+    left: 5px;
+    bottom: -15px;
+    transition: transform 0.3s ease;
+    animation: bounceIn 1s ease-out 1s both;
+}
+
+.cooker-img-small:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.input-area input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    margin-left: 90px;
+    outline: none;
+    font-size: 18px;
+    color: #6d4c41;
+    transition: all 0.3s ease;
+}
+
+.input-area input:focus {
+    color: #5d4037;
+}
+
+.input-area input::placeholder {
+    color: #8d6e63;
+    transition: color 0.3s ease;
+}
+
+.input-area input:focus::placeholder {
+    color: #a1887f;
+}
+
+.arrow-btn {
+    background-color: #3e2723;
+    color: #f5e6ca;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    transition: all 0.3s ease;
+    transform: scale(1);
+}
+
+.arrow-btn:hover {
+    background-color: #2e1b17;
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.arrow-btn:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+}
+
+.arrow-btn:disabled {
+    background-color: #6d4c41;
+    cursor: not-allowed;
+    transform: scale(1);
+    opacity: 0.7;
+}
+
+.output-area {
+    background-color: #f5e6ca;
+    color: #3e2723;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 20px;
+    text-align: left;
+    white-space: pre-wrap;
+}
+
+#chat-history {
+    height: 200px;
+    overflow-y: auto;
+    border: 1px solid #6d4c41;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #f5e6ca;
+    animation: fadeInUp 0.8s ease-out 0.6s both;
+    transition: border-color 0.3s ease;
+}
+
+#chat-history:focus-within {
+    border-color: #5d4037;
+}
+
+/* Custom scrollbar for chat history */
+#chat-history::-webkit-scrollbar {
+    width: 6px;
+}
+
+#chat-history::-webkit-scrollbar-track {
+    background: #e8d5b7;
+    border-radius: 3px;
+}
+
+#chat-history::-webkit-scrollbar-thumb {
+    background: #6d4c41;
+    border-radius: 3px;
+    transition: background 0.3s ease;
+}
+
+#chat-history::-webkit-scrollbar-thumb:hover {
+    background: #5d4037;
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border-radius: 15px;
+    max-width: 80%;
+    word-wrap: break-word;
+    animation: messageSlideIn 0.4s ease-out;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+@keyframes messageSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.user-message {
+    background-color: #a1887f;
+    color: white;
+    align-self: flex-end;
+    margin-left: auto;
+    animation: messageSlideInRight 0.4s ease-out;
+}
+
+@keyframes messageSlideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.ai-message {
+    background-color: #efebe9;
+    color: #3e2723;
+    align-self: flex-start;
+    animation: messageSlideInLeft 0.4s ease-out;
+}
+
+@keyframes messageSlideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Thinking animation for AI messages */
+.ai-message.thinking {
+    position: relative;
+    overflow: hidden;
+}
+
+.ai-message.thinking::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* Keyframe animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) translateY(10px);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1) translateY(-5px);
+    }
+    70% {
+        transform: scale(0.9) translateY(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Smooth scrolling for the entire page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Scan Button Styles */
+.scan-btn {
+    background-color: #4a2c2a;
+    color: #f5e6ca;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.scan-btn:hover {
+    background-color: #3e2723;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.scan-btn:active {
+    transform: translateY(0);
+    transition: transform 0.1s ease;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #1a1a1a;
+    transition: all 0.5s ease;
+}
+
+.container.dark-mode {
+    background-color: #2d2d2d;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.container.dark-mode h1 {
+    color: #bb86fc;
+}
+
+.container.dark-mode header button {
+    background-color: #3a3a3a;
+    color: #bb86fc;
+}
+
+.container.dark-mode header button:hover {
+    background-color: #4a4a4a;
+}
+
+.container.dark-mode .input-area {
+    background-color: #3a3a3a;
+    border-color: #bb86fc;
+}
+
+.container.dark-mode .input-area input {
+    color: #e0e0e0;
+}
+
+.container.dark-mode .input-area input::placeholder {
+    color: #888;
+}
+
+.container.dark-mode .input-area:focus-within {
+    border-color: #bb86fc;
+    box-shadow: 0 0 0 2px rgba(187, 134, 252, 0.3);
+}
+
+.container.dark-mode .arrow-btn {
+    background-color: #bb86fc;
+    color: #1a1a1a;
+}
+
+.container.dark-mode .arrow-btn:hover {
+    background-color: #9c6dff;
+}
+
+.container.dark-mode .scan-btn {
+    background-color: #bb86fc;
+    color: #1a1a1a;
+}
+
+.container.dark-mode .scan-btn:hover {
+    background-color: #9c6dff;
+}
+
+/* Chat messages dark mode */
+.container.dark-mode .user-message {
+    background-color: #bb86fc;
+    color: #1a1a1a;
+}
+
+.container.dark-mode .ai-message {
+    background-color: #3a3a3a;
+    color: #e0e0e0;
+}
+
+.container.dark-mode .shopping-list-button {
+    background-color: #bb86fc;
+    color: #1a1a1a;
+}
+
+.container.dark-mode .shopping-list-button:hover {
+    background-color: #9c6dff;
+}
+
+.container.dark-mode .view-cart-button {
+    background-color: #bb86fc;
+    color: #1a1a1a;
+}
+
+.container.dark-mode .view-cart-button:hover {
+    background-color: #9c6dff;
+}
+
+/* Shopping Cart Circle Dark Mode */
+.container.dark-mode #shopping-cart-circle .cart-icon {
+    background: linear-gradient(135deg, #bb86fc, #9c6dff);
+    box-shadow: 0 4px 15px rgba(187, 134, 252, 0.3);
+}
+
+.container.dark-mode #shopping-cart-circle .cart-icon:hover {
+    box-shadow: 0 6px 20px rgba(187, 134, 252, 0.4);
+}
+
+.container.dark-mode #shopping-cart-circle .cart-dropdown {
+    background: #2d2d2d;
+    border: 1px solid #444;
+}
+
+.container.dark-mode #shopping-cart-circle .cart-header {
+    background: linear-gradient(135deg, #bb86fc, #9c6dff);
+}
+
+.container.dark-mode #shopping-cart-circle .empty-cart {
+    color: #bb86fc;
+}
+
+.container.dark-mode #shopping-cart-circle .cart-item {
+    background: #3a3a3a;
+    border: 1px solid #444;
+}
+
+.container.dark-mode #shopping-cart-circle .cart-item:hover {
+    background: #4a4a4a;
+}
+
+.container.dark-mode #shopping-cart-circle .item-name {
+    color: #e0e0e0;
+}
+
+.container.dark-mode #shopping-cart-circle .item-price {
+    color: #bb86fc;
+}
+
+.container.dark-mode #shopping-cart-circle .qty-btn {
+    border: 1px solid #bb86fc;
+    background: #2d2d2d;
+    color: #bb86fc;
+}
+
+.container.dark-mode #shopping-cart-circle .qty-btn:hover {
+    background: #bb86fc;
+    color: #1a1a1a;
+}
+
+.container.dark-mode #shopping-cart-circle .remove-btn {
+    border: 1px solid #ff6b6b;
+    background: #2d2d2d;
+    color: #ff6b6b;
+}
+
+.container.dark-mode #shopping-cart-circle .remove-btn:hover {
+    background: #ff6b6b;
+    color: #1a1a1a;
+}
+
+.container.dark-mode #shopping-cart-circle .clear-cart-btn {
+    background: linear-gradient(135deg, #ff6b6b, #ff5252);
+}
+
+.container.dark-mode #shopping-cart-circle .clear-cart-btn:hover {
+    background: linear-gradient(135deg, #ff5252, #e53935);
+}
+
+.container.dark-mode #shopping-cart-circle .add-to-cart-btn {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+}
+
+/* Shopping List Display Dark Mode */
+body.dark-mode .shopping-list-display {
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+}
+
+body.dark-mode .shopping-list-header {
+    background: rgba(45, 45, 45, 0.95);
+}
+
+body.dark-mode .shopping-list-header h3 {
+    color: #bb86fc;
+}
+
+body.dark-mode .shopping-list-header p {
+    color: #e0e0e0;
+}
+
+body.dark-mode .close-shopping-list {
+    background: #ff6b6b;
+}
+
+body.dark-mode .close-shopping-list:hover {
+    background: #ff5252;
+}
+
+body.dark-mode .ingredient-box {
+    background: linear-gradient(135deg, rgba(45, 45, 45, 0.98), rgba(58, 58, 58, 0.95));
+    border: 1px solid rgba(187, 134, 252, 0.3);
+}
+
+body.dark-mode .ingredient-box:hover {
+    border-color: rgba(187, 134, 252, 0.5);
+}
+
+body.dark-mode .ingredient-name {
+    color: #bb86fc;
+    border-bottom: 3px solid #bb86fc;
+}
+
+body.dark-mode .product-item {
+    background: linear-gradient(135deg, #3a3a3a, #2d2d2d);
+    border: 1px solid #444;
+}
+
+body.dark-mode .product-item:hover {
+    background: linear-gradient(135deg, #4a4a4a, #3a3a3a);
+    border-color: #bb86fc;
+}
+
+body.dark-mode .product-item.best-match {
+    background: linear-gradient(135deg, #1e3a1e, #2d4a2d);
+    border: 2px solid #4CAF50;
+}
+
+body.dark-mode .product-name {
+    color: #e0e0e0;
+}
+
+body.dark-mode .product-brand {
+    color: #bb86fc;
+}
+
+body.dark-mode .product-price {
+    color: #4CAF50;
+    background: linear-gradient(135deg, #1e3a1e, #2d4a2d);
+}
+
+body.dark-mode .product-availability {
+    background: #3a3a3a;
+    color: #e0e0e0;
+}
+
+body.dark-mode .unmatched-ingredients {
+    background: rgba(45, 45, 45, 0.95);
+    border: 1px solid #ff6b6b;
+}
+
+body.dark-mode .unmatched-ingredients h4 {
+    color: #ff6b6b;
+}
+
+body.dark-mode .unmatched-ingredients ul {
+    color: #e0e0e0;
+}
+
+/* Barcode Scanner Overlay Styles */
+.scanner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(26, 26, 26, 0.98);
+    backdrop-filter: blur(10px);
+    z-index: 2000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.scanner-overlay.active {
+    display: flex;
+}
+
+.scanner-container {
+    width: 90%;
+    max-width: 500px;
+    background: linear-gradient(135deg, #2d2d2d, #1a1a1a);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    border: 1px solid #bb86fc;
+}
+
+.scanner-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #444;
+}
+
+.scanner-header h2 {
+    color: #bb86fc;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.close-scanner {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close-scanner:hover {
+    background: #ff5252;
+    transform: scale(1.1);
+}
+
+/* Scanned Ingredients List */
+.scanned-ingredients-list {
+    margin-bottom: 20px;
+    background: rgba(45, 45, 45, 0.5);
+    border-radius: 15px;
+    padding: 15px;
+    border: 1px solid #444;
+}
+
+.scanned-ingredients-list h3 {
+    color: #bb86fc;
+    margin: 0 0 15px 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.ingredients-display {
+    min-height: 80px;
+    max-height: 150px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+}
+
+.empty-list {
+    color: #888;
+    font-style: italic;
+    text-align: center;
+    margin: 20px 0;
+    font-size: 14px;
+}
+
+.ingredient-item {
+    background: linear-gradient(135deg, #3a3a3a, #2d2d2d);
+    border: 1px solid #555;
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.ingredient-item:hover {
+    border-color: #bb86fc;
+    transform: translateX(3px);
+}
+
+.ingredient-name {
+    color: #e0e0e0;
+    font-size: 14px;
+    font-weight: 500;
+    flex: 1;
+}
+
+.ingredient-barcode {
+    color: #bb86fc;
+    font-size: 11px;
+    opacity: 0.7;
+    margin-left: 10px;
+}
+
+.remove-ingredient {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.remove-ingredient:hover {
+    background: #ff5252;
+    transform: scale(1.1);
+}
+
+.clear-ingredients-btn {
+    background: linear-gradient(135deg, #ff6b6b, #ff5252);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.clear-ingredients-btn:hover {
+    background: linear-gradient(135deg, #ff5252, #e53935);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(255, 107, 107, 0.3);
+}
+
+.clear-ingredients-btn:disabled {
+    background: #444;
+    color: #888;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Scanner Actions */
+.scanner-actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.scan-ingredient-btn {
+    flex: 2;
+    background: linear-gradient(135deg, #bb86fc, #9c6dff);
+    color: #1a1a1a;
+    border: none;
+    border-radius: 25px;
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(187, 134, 252, 0.3);
+}
+
+.scan-ingredient-btn:hover {
+    background: linear-gradient(135deg, #9c6dff, #7c4dff);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(187, 134, 252, 0.4);
+}
+
+.scan-ingredient-btn:disabled {
+    background: #444;
+    color: #888;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.test-barcode-btn {
+    flex: 1;
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 15px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.test-barcode-btn:hover {
+    background: linear-gradient(135deg, #45a049, #388e3c);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+}
+
+.camera-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background: #000;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 2px solid #bb86fc;
+}
+
+.scanner-viewport {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.scanner-viewport video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 13px;
+}
+
+.scanner-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-radius: 13px;
+}
+
+/* Animated scanning line */
+.scanner-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #bb86fc, transparent);
+    animation: scanLine 2s linear infinite;
+    z-index: 10;
+}
+
+@keyframes scanLine {
+    0% { top: 0; opacity: 1; }
+    50% { opacity: 1; }
+    100% { top: calc(100% - 2px); opacity: 0; }
+}
+
+/* Corner overlay for scanning area */
+.corner-overlay {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    right: 50px;
+    bottom: 50px;
+    pointer-events: none;
+}
+
+.corner {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 3px solid #bb86fc;
+}
+
+.corner.top-left {
+    top: 0;
+    left: 0;
+    border-right: none;
+    border-bottom: none;
+    border-top-left-radius: 10px;
+}
+
+.corner.top-right {
+    top: 0;
+    right: 0;
+    border-left: none;
+    border-bottom: none;
+    border-top-right-radius: 10px;
+}
+
+.corner.bottom-left {
+    bottom: 0;
+    left: 0;
+    border-right: none;
+    border-top: none;
+    border-bottom-left-radius: 10px;
+}
+
+.corner.bottom-right {
+    bottom: 0;
+    right: 0;
+    border-left: none;
+    border-top: none;
+    border-bottom-right-radius: 10px;
+}
+
+.scanner-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.scan-control-btn {
+    flex: 1;
+    min-width: 120px;
+    background: linear-gradient(135deg, #bb86fc, #9c6dff);
+    color: #1a1a1a;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.scan-control-btn:hover {
+    background: linear-gradient(135deg, #9c6dff, #7c4dff);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(187, 134, 252, 0.3);
+}
+
+.scan-control-btn:disabled {
+    background: #444;
+    color: #888;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.scan-status {
+    text-align: center;
+}
+
+.scan-status p {
+    color: #e0e0e0;
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.scan-result {
+    background: linear-gradient(135deg, #1e3a1e, #2d4a2d);
+    border: 1px solid #4CAF50;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 15px;
+}
+
+.scan-result h3 {
+    color: #4CAF50;
+    margin: 0 0 10px 0;
+    font-size: 18px;
+}
+
+.scan-result p {
+    color: #e0e0e0;
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.add-ingredient-btn {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.add-ingredient-btn:hover {
+    background: linear-gradient(135deg, #45a049, #388e3c);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+}
+
+/* Hide scanner overlay by default, only show in dark mode */
+body:not(.dark-mode) .scanner-overlay {
+    display: none !important;
+}
+
+/* Scanner loading animation */
+.scanner-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+    color: #bb86fc;
+}
+
+.scanner-loading .spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #444;
+    border-top: 3px solid #bb86fc;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Used Ingredients Info (Dark Mode) */
+.used-ingredients-info {
+    margin-top: 15px;
+    padding: 15px;
+    background: linear-gradient(135deg, rgba(187, 134, 252, 0.1), rgba(156, 109, 255, 0.1));
+    border: 1px solid rgba(187, 134, 252, 0.3);
+    border-radius: 12px;
+}
+
+.ingredients-used h4 {
+    color: #bb86fc;
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.ingredients-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.ingredient-tag {
+    background: linear-gradient(135deg, #bb86fc, #9c6dff);
+    color: #1a1a1a;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+/* Hide used ingredients info in light mode */
+body:not(.dark-mode) .used-ingredients-info {
+    display: none;
+}

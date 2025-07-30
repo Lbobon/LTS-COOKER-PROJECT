@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:," />
+    <!-- ZXing-js for more accurate barcode scanning -->
+    <script src="https://unpkg.com/@zxing/library@latest/umd/index.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button>Dairy</button>
+            <button>Meat</button>
+            <button>Vegetables</button>
+            <button>Spices</button>
+            <button>Baking</button>
+        </header>
+        <h1>COOKER</h1>
+        <img src="images/mouse.png" alt="Mouse Character" class="mouse-img-main">
+        <div id="chat-history"></div>
+        <div class="input-area">
+            <img src="images/cooker.png" alt="Cooker Character" class="cooker-img-small">
+            <input type="text">
+            <button class="arrow-btn">></button>
+        </div>
+        <button class="scan-btn" id="scanBtn">Scan</button>
+    </div>
+
+    <!-- Barcode Scanner Overlay (Dark Mode Only) -->
+    <div id="barcode-scanner-overlay" class="scanner-overlay">
+        <div class="scanner-container">
+            <div class="scanner-header">
+                <h2>🔍 Ingredient Scanner</h2>
+                <button class="close-scanner" id="closeScanner">✕</button>
+            </div>
+            
+            <div class="scanned-ingredients-list">
+                <h3>📋 Scanned Ingredients</h3>
+                <div id="scannedIngredientsList" class="ingredients-display">
+                    <p class="empty-list">No ingredients scanned yet</p>
+                </div>
+                <button id="clearIngredients" class="clear-ingredients-btn">Clear All</button>
+            </div>
+            
+            <div class="scanner-actions">
+                <button id="scanIngredientBtn" class="scan-ingredient-btn">📱 Scan Ingredient</button>
+                <button id="testBarcodeBtn" class="test-barcode-btn">🧪 Test Scan</button>
+            </div>
+            
+            <div class="camera-container" id="cameraContainer" style="display: none;">
+                <video id="scanner" class="scanner-viewport" autoplay muted playsinline></video>
+                <canvas id="scannerCanvas" class="scanner-canvas"></canvas>
+                <div class="scanner-line"></div>
+                <div class="corner-overlay">
+                    <div class="corner top-left"></div>
+                    <div class="corner top-right"></div>
+                    <div class="corner bottom-left"></div>
+                    <div class="corner bottom-right"></div>
+                </div>
+            </div>
+            
+            <div class="scanner-controls" id="scannerControls" style="display: none;">
+                <button id="stopScan" class="scan-control-btn">⏹️ Stop Scanning</button>
+            </div>
+            
+            <div class="scan-status">
+                <p id="scanStatus">Ready to scan ingredients. Click "Scan Ingredient" to start.</p>
+                <div class="scan-result" id="scanResult" style="display: none;">
+                    <h3>✅ Ingredient Added!</h3>
+                    <p id="productName"></p>
+                    <p id="barcodeNumber"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
