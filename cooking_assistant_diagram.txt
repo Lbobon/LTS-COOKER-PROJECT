@@ -1,0 +1,188 @@
+🍳 COOKING ASSISTANT WEB APP - COMPLETE PIPELINE DIAGRAM 🍳
+
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                    USER INTERFACE LAYER                                          │
+├─────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                                 │
+│  ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐      │
+│  │   💬 CHAT       │    │   🛒 SHOPPING   │    │   📱 DARK MODE  │    │   🛍️ GENERAL    │      │
+│  │   INTERFACE     │    │   LIST DISPLAY  │    │   SCANNER       │    │   SHOPPING CART │      │
+│  │                 │    │                 │    │                 │    │                 │      │
+│  │ • Text Input    │    │ • Full Screen   │    │ • Camera Access │    │ • Plus Buttons  │      │
+│  │ • AI Responses  │    │ • Grid Layout   │    │ • Barcode Scan  │    │ • Cart Widget   │      │
+│  │ • Dish Names    │    │ • Product Cards │    │ • ZXing-js      │    │ • Total Price   │      │
+│  │ • Ingredients   │    │ • Price/Stock   │    │ • Real-time     │    │ • Quantity Mgmt │      │
+│  └─────────────────┘    └─────────────────┘    └─────────────────┘    └─────────────────┘      │
+│           │                       │                       │                       │              │
+│           ▼                       ▼                       ▼                       ▼              │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────┘
+                                    │
+                                    ▼
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                    BACKEND API LAYER                                             │
+├─────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                                 │
+│  ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐      │
+│  │   🗣️ CHAT       │    │   🛒 SHOPPING   │    │   📱 BARCODE    │    │   🎯 PRODUCT    │      │
+│  │   ENDPOINT      │    │   LIST GEN      │    │   LOOKUP        │    │   MATCHING      │      │
+│  │                 │    │                 │    │                 │    │                 │      │
+│  │ • /api/chat     │    │ • /api/shopping │    │ • /api/barcode  │    │ • find_matching │      │
+│  │ • Qwen 2.5:7B   │    │   -list         │    │   -lookup       │    │   _products     │      │
+│  │ • Strict Prompt │    │ • Ingredient    │    │ • go-upc.com    │    │ • Scoring Algo  │      │
+│  │ • Recipe Mode   │    │   Extraction    │    │ • upcitemdb.com │    │ • Duplicate     │      │
+│  └─────────────────┘    └─────────────────┘    └─────────────────┘    └─────────────────┘      │
+│           │                       │                       │                       │              │
+│           ▼                       ▼                       ▼                       ▼              │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────┘
+                                    │
+                                    ▼
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                    AI MODEL LAYER                                                │
+├─────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                                 │
+│  ┌─────────────────────────────────────────────────────────────────────────────────────────────┐    │
+│  │                           🤖 OLLAMA SERVER (Port 11434)                                   │    │
+│  │                                                                                           │    │
+│  │  ┌─────────────────────────────────────────────────────────────────────────────────────┐    │    │
+│  │  │                    🧠 QWEN 2.5:7B MODEL (~14GB RAM)                                │    │    │
+│  │  │                                                                                     │    │    │
+│  │  │  • Normal Mode: Strict ingredient lists only                                        │    │    │
+│  │  │  • Recipe Mode: Complete recipes with instructions                                  │    │    │
+│  │  │  • Uses "/" for alternatives (not "or")                                            │    │    │
+│  │  │  • No duplicate ingredients                                                         │    │    │
+│  │  └─────────────────────────────────────────────────────────────────────────────────────┘    │    │
+│  └─────────────────────────────────────────────────────────────────────────────────────────────┘    │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────┘
+                                    │
+                                    ▼
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                    DATA SOURCES LAYER                                           │
+├─────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                                 │
+│  ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐      │
+│  │   📊 WMT CSV    │    │   🌐 GO-UPC     │    │   🌐 UPCITEMDB  │    │   🧪 TEST       │      │
+│  │   DATABASE      │    │   SCRAPING      │    │   API           │    │   BARCODES      │      │
+│  │                 │    │                 │    │                 │    │                 │      │
+│  │ • 100MB+ CSV    │    │ • Primary       │    │ • Fallback      │    │ • Hardcoded     │      │
+│  │ • Real Walmart  │    │   Lookup        │    │   Service       │    │   Products      │      │
+│  │   Products      │    │ • BeautifulSoup │    │ • JSON API      │    │ • Coca-Cola     │      │
+│  │ • Price/Stock   │    │ • HTML Parsing  │    │ • Alternative   │    │ • Oreo, Pepsi   │      │
+│  └─────────────────┘    └─────────────────┘    └─────────────────┘    └─────────────────┘      │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                    COMPLETE USER JOURNEY                                         │
+├─────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                                 │
+│  1️⃣ USER INPUT: "pizza"                                                                         │
+│     │                                                                                           │
+│     ▼                                                                                           │
+│  2️⃣ FRONTEND: POST /api/chat                                                                    │
+│     │                                                                                           │
+│     ▼                                                                                           │
+│  3️⃣ BACKEND: Send to Qwen 2.5:7B                                                               │
+│     │                                                                                           │
+│     ▼                                                                                           │
+│  4️⃣ AI RESPONSE: "Pizza dough, tomato sauce/pizza sauce, mozzarella cheese, olive oil, basil/oregano, garlic"
+│     │                                                                                           │
+│     ▼                                                                                           │
+│  5️⃣ FRONTEND: Display ingredients + "Generate Shopping List" button                            │
+│     │                                                                                           │
+│     ▼                                                                                           │
+│  6️⃣ USER: Click "Generate Shopping List"                                                       │
+│     │                                                                                           │
+│     ▼                                                                                           │
+│  7️⃣ BACKEND: Extract ingredients → Find matching products → Return shopping list               │
+│     │                                                                                           │
+│     ▼                                                                                           │
+│  8️⃣ FRONTEND: Display full-screen shopping list with real Walmart products                    │
+│                                                                                                 │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                    DARK MODE SCANNER JOURNEY                                    │
+├─────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                                 │
+│  1️⃣ USER: Click "Scan" → Enter Dark Mode                                                        │
+│     │                                                                                           │
+│     ▼                                                                                           │
+│  2️⃣ FRONTEND: Access camera via WebRTC                                                         │
+│     │                                                                                           │
+│     ▼                                                                                           │
+│  3️⃣ ZXING-JS: Continuous barcode scanning                                                      │
+│     │                                                                                           │
+│     ▼                                                                                           │
+│  4️⃣ BACKEND: POST /api/barcode-lookup                                                          │
+│     │                                                                                           │
+│     ▼                                                                                           │
+│  5️⃣ WEB SCRAPING: go-upc.com → upcitemdb.com (fallback)                                       │
+│     │                                                                                           │
+│     ▼                                                                                           │
+│  6️⃣ FRONTEND: Add product to scanned ingredients list                                          │
+│     │                                                                                           │
+│     ▼                                                                                           │
+│  7️⃣ USER: Ask for recipe with scanned ingredients                                              │
+│     │                                                                                           │
+│     ▼                                                                                           │
+│  8️⃣ AI: Generate complete recipe using scanned ingredients                                     │
+│                                                                                                 │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                    TECHNICAL SPECIFICATIONS                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                                 │
+│  🖥️  FRONTEND (Port 8000):                                                                      │
+│     • HTML5 + CSS3 + Vanilla JavaScript                                                        │
+│     • ZXing-js for barcode scanning                                                            │
+│     • WebRTC for camera access                                                                 │
+│     • Canvas API for video processing                                                          │
+│     • Dark mode with brownish theme                                                            │
+│                                                                                                 │
+│  🔧 BACKEND (Port 5001):                                                                        │
+│     • Flask + Flask-CORS                                                                       │
+│     • Requests for HTTP calls                                                                   │
+│     • BeautifulSoup4 for web scraping                                                          │
+│     • CSV processing for product database                                                       │
+│     • Regular expressions for text parsing                                                      │
+│                                                                                                 │
+│  🤖 AI MODEL (Port 11434):                                                                      │
+│     • Ollama server                                                                            │
+│     • Qwen 2.5:7B model (~14GB RAM)                                                           │
+│     • Local processing, no internet required                                                   │
+│     • Strict prompts for ingredient generation                                                 │
+│                                                                                                 │
+│  📊 DATA SOURCES:                                                                               │
+│     • WMT_Grocery_202209.csv (~100MB)                                                         │
+│     • go-upc.com (primary barcode lookup)                                                     │
+│     • upcitemdb.com (fallback barcode lookup)                                                 │
+│     • Test barcodes for development                                                            │
+│                                                                                                 │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                    KEY FEATURES HIGHLIGHTED                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                                 │
+│  🎯 SMART INGREDIENT PARSING:                                                                   │
+│     Input: "tomato sauce/pizza sauce"                                                          │
+│     Output: ["tomato sauce", "pizza sauce"] (2 separate searches)                              │
+│                                                                                                 │
+│  🧠 ADVANCED PRODUCT MATCHING:                                                                  │
+│     • Jaccard Similarity + Word Coverage + Prefix Bonus                                        │
+│     • Simplicity Bonus + Brand Bonus + Ultra-processed Penalty                                 │
+│     • Duplicate prevention with product signatures                                             │
+│                                                                                                 │
+│  🛡️ DUPLICATE PREVENTION:                                                                       │
+│     • create_product_signature() for unique identification                                     │
+│     • are_products_similar() with Levenshtein distance                                        │
+│     • Multi-layer filtering system                                                             │
+│                                                                                                 │
+│  📱 BARCODE SCANNING:                                                                           │
+│     • ZXing-js for accurate scanning                                                          │
+│     • Multiple fallback services                                                               │
+     • Real-time camera processing                                                               │
+│                                                                                                 │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+🎉 COMPLETE COOKING ASSISTANT WEB APP PIPELINE - VISUAL DIAGRAM 🎉 
