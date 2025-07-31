@@ -1,6 +1,6 @@
 # 🍳 Cooker - AI-Powered Cooking Assistant
 
-A comprehensive web application that combines barcode scanning, AI-powered recipe generation, and intelligent shopping list creation. Built with Flask, Ollama, and modern web technologies.
+Cooker is a project i built, in collaboration with my teammates, during the LTS AI Summer Camp. After having leanrt broadly about different Ai technologies, focusing on LLMs, Agentic AI from IBM watsonx, LuxProvide environement to train models, and more, we decided to build a web application, in less than 48 hours that combines barcode scanning, AI-powered recipe generation, and intelligent shopping list creation. Built with Flask, Ollama, and modern web technologies.
 
 ---
 
@@ -46,7 +46,7 @@ A comprehensive web application that combines barcode scanning, AI-powered recip
 ## 📁 Project Structure
 
 ```
-pipi/
+LTS-COOKER-PROJECT/
 ├── 📄 app.js                    # Frontend JavaScript (991 lines)
 ├── 📄 index.html                # Main HTML page
 ├── 📄 style.css                 # Styling (1107 lines)
@@ -88,11 +88,11 @@ pipi/
 ```bash
 # Option A: Clone repository
 git clone <repository-url>
-cd pipi
+cd LTS-COOKER-PROJECT
 
 # Option B: Download and extract ZIP
 # Navigate to project folder
-cd pipi
+cd LTS-COOKER-PROJECT
 ```
 
 ### **2. Install Ollama & AI Model**

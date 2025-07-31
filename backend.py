@@ -402,11 +402,11 @@ def extract_ingredients_from_text(text):
             final_ingredients.extend(alternatives)
         else:
             # Skip if it's too short, contains only punctuation, looks like intro text, or is just "Sure"
-            if (cleaned_line and len(cleaned_line) > 2 and 
-                not re.match(r'^[^\w]*$', cleaned_line) and
-                not re.match(r'^(?:sure|ingredients|for|here|the|are|include)$', cleaned_line, re.IGNORECASE) and
-                not re.match(r'^(?:ingredients|for|here|the|are|include)', cleaned_line, re.IGNORECASE)):
-                final_ingredients.append(cleaned_line)
+            if (cleaned_ingredient and len(cleaned_ingredient) > 2 and 
+                not re.match(r'^[^\w]*$', cleaned_ingredient) and
+                not re.match(r'^(?:sure|ingredients|for|here|the|are|include)$', cleaned_ingredient, re.IGNORECASE) and
+                not re.match(r'^(?:ingredients|for|here|the|are|include)', cleaned_ingredient, re.IGNORECASE)):
+                final_ingredients.append(cleaned_ingredient)
             
     return final_ingredients
 
