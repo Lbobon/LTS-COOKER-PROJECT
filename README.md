@@ -1,12 +1,16 @@
 # 🍳 Cooker - AI-Powered Cooking Assistant
 
-Cooker is a project i built, in collaboration with my teammates, during the LTS AI Summer Camp. After having leanrnt broadly about different AI technologies, focusing on LLMs, Agentic AI from IBM Watsonx, LuxProvide environement to train models, and more, we decided to build a web application, in less than 48 hours that combines barcode scanning, AI-powered recipe generation, and intelligent shopping list creation. Built with Flask, Ollama, and modern web technologies.
-I was responsible for the backend, the frontend, and the AI model, basically the codingpart of the porject while my teammates spent their time ressourcing for datasets, innovative ideas, designs using figma, and making sure this idea was feasible (useful)
-Here is a canvalink to our project:https://www.canva.com/design/DAGucFNjHgA/pjmk5-spFrEed23tMUxOsA/edit?utm_content=DAGucFNjHgA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
-Disclaimer:if wanting to use this project, you will need to have a local instance of Ollama running, and a Walmart grocery database, so make sure you download the dataset from this link and put it into the folder:https://www.kaggle.com/datasets/thedevastator/product-prices-and-sizes-from-walmart-grocery
+Cooker is a project I built in collaboration with my teammates during the LTS AI Summer Camp. After learning broadly about different AI technologies, focusing on LLMs, Agentic AI from IBM Watsonx, LuxProvide environment to train models, and more, we decided to build a web application in less than 48 hours that combines barcode scanning, AI-powered recipe generation, and intelligent shopping list creation. Built with Flask, Ollama, and modern web technologies.
+
+I was responsible for the backend, frontend, and AI model integration - essentially the coding part of the project - while my teammates focused on sourcing datasets, innovative ideas, designs using Figma, and ensuring the project's feasibility and usefulness.
+
+**Project Design**: [View our Canva presentation](https://www.canva.com/design/DAGucFNjHgA/pjmk5-spFrEed23tMUxOsA/edit?utm_content=DAGucFNjHgA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
+**⚠️ Important**: To use this project, you will need a local instance of Ollama running and the Walmart grocery database. Please download the dataset from [this link](https://www.kaggle.com/datasets/thedevastator/product-prices-and-sizes-from-walmart-grocery) and place it in the project folder.
+
 ---
 
-##🌟 Features
+## 🌟 Features
 
 ### 🔍 **Barcode Scanning**
 - **Real-time camera scanning**
@@ -29,7 +33,6 @@ Disclaimer:if wanting to use this project, you will need to have a local instanc
 - **Real product data** including prices, availability, and promotions
 - **3 top recommendations** per ingredient with relevance scoring
 
-
 ---
 
 ## 🛠️ Prerequisites
@@ -40,7 +43,9 @@ Disclaimer:if wanting to use this project, you will need to have a local instanc
 | **Python** | 3.8+ | Backend API server |
 | **pip** | Latest | Package management |
 | **Ollama** | Latest | Local AI model hosting |
-| **Modern Browser** | Chrome/Edge/Firefox | WebAssembly & camera support |  ( we used safari to avoid issues with API calls, so if using safari the project should setup properly )
+| **Modern Browser** | Chrome/Edge/Firefox | WebAssembly & camera support |
+
+*Note: We used Safari to avoid issues with API calls, so the project should set up properly with Safari.*
 
 ### **System Requirements**
 - **RAM**: 8GB+ (for Ollama model)
@@ -50,7 +55,9 @@ Disclaimer:if wanting to use this project, you will need to have a local instanc
 
 ---
 
-## 🚀 We would love for people to try our project out,and provide us feedback, so here is how to setup the project:
+## 🚀 Installation & Setup
+
+We would love for people to try our project and provide feedback. Here's how to set it up:
 
 ### **1. Clone/Download Project**
 ```bash
@@ -90,7 +97,8 @@ ollama pull qwen2.5:7b
 # Verify installation
 ollama list
 ```
-If you want to use a different model, you can change the model name in the backend.py file, and then pull the model again. (however aftermultiple rounds of testing, Qwen model was the perfect balance between speed and accuracy)
+
+*Note: If you want to use a different model, you can change the model name in the backend.py file and then pull the model again. However, after multiple rounds of testing, the Qwen model provided the perfect balance between speed and accuracy.*
 
 ### **3. Setup Python Environment**
 
@@ -149,17 +157,23 @@ python -m http.server 8000
 
 ---
 
+## 🎯 How to Use
+
+### Demo Video
+![Demo Video](demo-video.mp4)
+
+*Watch our demo to see the AI-powered cooking assistant in action!*
 
 ### **Basic Workflow**
 1. **Open** http://localhost:8000
 2. **Ask for ingredients**: Type "pizza" or "chocolate chip cookies", or whatever dish name you have in mind
 3. **Generate shopping list**: Click "🛒 Generate Shopping List"
-4. **Get recipes**: wait for recipe generation to finish
-5. **Get shopping list**: wait for shopping list generation to finish
-6. **View shopping list**: click on the "View My Cart" button
-7. **Add to general cart**: click on the "+" button on the products you want to add to your cart
-8. **Remove items**: click on the "×" button on the cart items you want to remove
-9. **Clear all**: click on the "Clear All" button
+4. **Get recipes**: Wait for recipe generation to finish
+5. **Get shopping list**: Wait for shopping list generation to finish
+6. **View shopping list**: Click on the "View My Cart" button
+7. **Add to general cart**: Click on the "+" button on the products you want to add to your cart
+8. **Remove items**: Click on the "×" button on the cart items you want to remove
+9. **Clear all**: Click on the "Clear All" button
 
 ### **Barcode Scanning**
 1. **Click "Scan"** button (we named this dark mode only because it's the only mode that has a camera, and the color scheme is dark)
@@ -173,7 +187,9 @@ python -m http.server 8000
 3. **Ask for recipe**: "Make me a recipe with these ingredients"
 4. **AI generates** complete recipe with instructions
 
-Thank you for trying out our project, and we hope you enjoy it! Were happy for any feedback, and we hope you find it useful! 
+---
+
+Thank you for trying out our project, and we hope you enjoy it! We're happy for any feedback, and we hope you find it useful! 
 
 
 
