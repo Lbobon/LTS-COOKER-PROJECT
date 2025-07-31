@@ -10,6 +10,13 @@ I was responsible for the backend, frontend, and AI model integration - essentia
 
 ---
 
+## 🎬 Demo Video
+[![Demo Video](https://img.youtube.com/vi/rLalEnZAKfc/0.jpg)](https://www.youtube.com/watch?v=rLalEnZAKfc)
+
+*Click the image above to watch our demo video on YouTube*
+
+---
+
 ## 🌟 Features
 
 ### 🔍 **Barcode Scanning**
@@ -158,11 +165,6 @@ python -m http.server 8000
 ---
 
 ## 🎯 How to Use
-
-### Demo Video
-[![Demo Video](https://img.youtube.com/vi/rLalEnZAKfc/0.jpg)](https://www.youtube.com/watch?v=rLalEnZAKfc)
-
-*Click the image above to watch our demo video on YouTube*
 
 ### **Basic Workflow**
 1. **Open** http://localhost:8000
