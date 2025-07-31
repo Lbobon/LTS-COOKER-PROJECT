@@ -66,7 +66,7 @@ yarn-error.log*
 .cache/
 
 # Large data files (optional - remove if you want to include CSV)
-# WMT_Grocery_202209.csv
+WMT_Grocery_202209.csv
 # products.csv
 
 # Ollama models (local)
