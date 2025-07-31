@@ -160,9 +160,9 @@ python -m http.server 8000
 ## 🎯 How to Use
 
 ### Demo Video
-![Demo Video](demo-video.mp4)
+[![Demo Video](https://img.youtube.com/vi/rLalEnZAKfc/0.jpg)](https://www.youtube.com/watch?v=rLalEnZAKfc)
 
-*Watch our demo to see the AI-powered cooking assistant in action!*
+*Click the image above to watch our demo video on YouTube*
 
 ### **Basic Workflow**
 1. **Open** http://localhost:8000
